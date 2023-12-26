@@ -1,0 +1,57 @@
+/* signin.page.scss */
+
+ion-header {
+  ion-toolbar {
+    ion-title {
+      font-size: 24px;
+    }
+  }
+}
+
+ion-content {
+  --background: black;
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Set the height to full viewport height */
+  }
+
+  form {
+    border: 1px solid #ccc; /* Add border to the form */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    padding: 20px; /* Add padding to the form */
+    max-width: 300px; /* Set maximum width for the form */
+
+    ion-item {
+      ion-label {
+        font-size: 18px;
+      }
+      ion-input {
+        font-size: 16px;
+      }
+    }
+
+    .form-options {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+
+      a {
+        color: #007bff;
+        cursor: pointer;
+      }
+
+      .separator {
+        margin: 0 10px;
+      }
+    }
+
+    ion-button {
+      margin-top: 20px;
+    }
+  }
+}

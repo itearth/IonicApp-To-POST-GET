@@ -1,0 +1,33 @@
+<!-- signin.page.html -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Sign In
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="center-content">
+    
+    <div>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <div class="form-options">
+        <!-- <a (click)="forgotPassword()">Forgot Password?</a> -->
+       
+      </div>
+      <ion-button expand="full" (click)="signIn()">Sign In</ion-button>
+      <div class="no-account">
+        <p>Don't have an account? <a (click)="signUp()">Sign Up</a></p>
+      </div>
+    </div>
+  </div>
+</ion-content>
