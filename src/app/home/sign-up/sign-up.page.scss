@@ -1,13 +1,16 @@
 
 ion-header {
   ion-toolbar {
+    --background:#212121;
     ion-title {
       font-size: 24px;
+      color: #FFFFFF;
     }
   }
 }
 
 ion-content {
+  --background: black;
   .center-content {
     display: flex;
     flex-direction: column;

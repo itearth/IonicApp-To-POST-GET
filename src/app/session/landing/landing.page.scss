@@ -8,16 +8,18 @@
 
 ion-header {
   ion-toolbar {
+    --background: #212121;
     ion-buttons {
       ion-button {
-        background-color: #007bff;
-        color: #ffffff;
-        border: none;
+       
+        background-color: #e3e3e3;
+       border: none;
         border-radius: 5px;
         padding: 10px 15px;
         font-size: 16px;
         cursor: pointer;
         margin-right: 10px;
+        --color: black;
       }
       ion-toggle {
         margin-right: 10px; /* Add margin to separate the toggle and button */
@@ -35,5 +37,9 @@ ion-header {
     margin-right: auto;
     margin-top: 100px;
     z-index: 1;
+    ;
   }
 
+ion-content {
+--background: black;
+}

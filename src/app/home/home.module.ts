@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { LandingPageComponent } from './landing/landing.page';
+import { LandingPageComponent } from '../session/landing/landing.page';
 
 import { HttpClientModule } from '@angular/common/http';
 
