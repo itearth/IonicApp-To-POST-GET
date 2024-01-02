@@ -37,14 +37,14 @@ export class SignInPageComponent implements OnInit {
       const res: any = await this.authenticationService.login(params).toPromise();
   
       console.log('Response:', res);
-      if (res.statusCode === 200) {
+      if (res.statuscode === 200) {
         const userData = res.data[0]; 
 
          // Storing user data in local storage
       localStorage.setItem('userData', JSON.stringify(userData));
 
         // Navigate to the dashboard page on successful login
-        this.router.navigate(['dashboard']); // Change here
+        this.router.navigate(['home']); // Change here
       } else {
         this.presentAlert('Alert', res.message);
       }

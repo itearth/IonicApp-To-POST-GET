@@ -8,6 +8,7 @@ import { LandingPageComponent } from '../session/landing/landing.page';
 
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardPage } from './dashboard/dashboard.page';
+import { SideBarComponent } from '../shared/side-bar/side-bar.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DashboardPage } from './dashboard/dashboard.page';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
-    DashboardPage
+    DashboardPage,
+    SideBarComponent
   ]
 })
 export class HomePageModule { }
