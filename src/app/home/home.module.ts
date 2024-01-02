@@ -7,6 +7,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { LandingPageComponent } from '../session/landing/landing.page';
 
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardPage } from './dashboard/dashboard.page';
 
 
 @NgModule({
@@ -19,8 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
-    LandingPageComponent,
-    
+    DashboardPage
   ]
 })
 export class HomePageModule { }

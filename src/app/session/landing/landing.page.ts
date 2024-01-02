@@ -13,13 +13,9 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() { }
 
-  getStarted() {
-    // Navigating to the "Product" page
-    this.router.navigate(['/landing']);
-  }
   signIn() {
-     // Navigating to the "SignIn" page
-     this.router.navigate(['/signin']);
+    // Navigating to the "SignIn" page
+    this.router.navigate(['session/sign-in']);
   }
   toggleLanguage() {
     // Your language toggle logic goes here
