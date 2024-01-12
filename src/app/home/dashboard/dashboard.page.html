@@ -1,16 +1,21 @@
-<ion-content [fullscreen]="true">
+<ion-content class="dashboard-layout">
   <app-side-bar></app-side-bar>
 
-  <ion-card *ngFor="let newsItem of newsData">
-    <img [src]="newsItem.news_image_signed_url" alt="{{ newsItem.news_title }}" />
-    <ion-card-header>
-      <ion-card-title>{{ newsItem.news_title }}</ion-card-title>
-      <ion-card-subtitle>{{ newsItem.creation_time }}</ion-card-subtitle>
-    </ion-card-header>
+  <div class="newsFeedList">
 
-    <ion-card-content>
-      {{ newsItem.news_short_description }}
-      <a [href]="newsItem.news_url" target="_blank">Read more</a>
-    </ion-card-content>
-  </ion-card>
+    <ion-card *ngFor="let newsItem of newsData">
+      <img [src]="newsItem.news_image_signed_url" alt="{{ newsItem.news_title }}" />
+      <ion-card-header>
+        <ion-card-title>{{ newsItem.news_title }}</ion-card-title>
+        <ion-card-subtitle>{{ newsItem.creation_time }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{ newsItem.news_short_description }}
+        <a [href]="newsItem.news_url" target="_blank">Read more</a>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
 </ion-content>

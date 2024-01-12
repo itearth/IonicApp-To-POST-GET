@@ -1,34 +1,40 @@
-
-
 ion-content {
-  --background: black; 
+  --background: black;
 }
 
 ion-card {
-  background-color: #333; 
-  color: white; 
-  margin-bottom: 15px; 
+  background-color: #333;
+  color: white;
+  margin-bottom: 15px;
 }
 
 ion-card-header,
 ion-card-title,
 ion-card-subtitle {
-  color: white; 
+  color: white;
 }
 
 ion-card-content {
-  color: white; 
+  color: white;
 }
 
 a {
-  color: #3498db; 
+  color: #3498db;
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 ion-app {
-  --background: black; 
+  --background: black;
+}
+
+.dashboard-layout {
+  --background: red;
+}
+
+.newsFeedList {
+  margin-top: 70px;
 }

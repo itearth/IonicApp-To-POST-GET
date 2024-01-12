@@ -9,6 +9,7 @@ import { LandingPageComponent } from '../session/landing/landing.page';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardPage } from './dashboard/dashboard.page';
 import { SideBarComponent } from '../shared/side-bar/side-bar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SideBarComponent } from '../shared/side-bar/side-bar.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     DashboardPage,
-    SideBarComponent
+    SideBarComponent,
+    ProfileComponent
   ]
 })
 export class HomePageModule { }

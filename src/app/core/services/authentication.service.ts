@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
   serverUrl = 'https://new.hipoz.com/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(params: any): Observable<any> {
     const url = `${this.serverUrl}/commanloginuser`;
@@ -16,7 +16,7 @@ export class AuthenticationService {
   }
 
   getNewsFeed(): Observable<any> {
-    const url = `${this.serverUrl}/getnewsfeed`;
+    const url = `${this.serverUrl}/getnewsfeed?status_enum_id=1&news_user_type_id=149`;
     return this.http.get<any>(url);
   }
 }

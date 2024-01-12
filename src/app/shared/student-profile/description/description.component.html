@@ -1,0 +1,20 @@
+<!-- description.component.html -->
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Card Title</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>{{ description }}</p>
+  </ion-card-content>
+
+  <ion-button fill="clear" (click)="openEditDialog()">Edit</ion-button>
+</ion-card>
+
+<app-description-edit
+  *ngIf="isEditDialogOpen"
+  [currentDescription]="description"
+  (saveDescription)="saveDescription($event)"
+  (deleteDescription)="deleteDescription()"
+></app-description-edit>
