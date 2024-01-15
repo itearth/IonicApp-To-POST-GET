@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 @NgModule({
   imports: [
@@ -13,13 +14,15 @@ import { SideBarComponent } from './side-bar/side-bar.component';
   ],
 
   exports: [
-    SideBarComponent
+    SideBarComponent,
+    StudentProfileComponent
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   declarations: [
-    SideBarComponent
+    SideBarComponent,
+    StudentProfileComponent
   ]
 })
 export class SharedModule { }

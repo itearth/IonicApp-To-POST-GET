@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardPage } from './dashboard/dashboard.page';
 import { SideBarComponent } from '../shared/side-bar/side-bar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,12 +19,12 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     DashboardPage,
-    SideBarComponent,
     ProfileComponent
   ]
 })
