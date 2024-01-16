@@ -8,17 +8,7 @@ const routes: Routes = [
   {
     path: '',
     component: SideBarComponent,
-    children: [
-      {
-        path: 'landing',
-        component: LandingPageComponent,
-      },
-      {
-        path: 'profile',
-        component: ProfileComponent,
-      },
-      // Add other child routes as needed
-    ],
+    
   },
   
 ];

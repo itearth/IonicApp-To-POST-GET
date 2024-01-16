@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+// description-edit.component.ts
 
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-description-edit',
@@ -12,26 +13,26 @@ export class DescriptionEditComponent {
   @Output() deleteDescription = new EventEmitter<void>();
 
   editedDescription: string = '';
-  modalController: any;
 
   constructor() {}
+
+  ngOnInit() {
+    // Set the initial edited description to the current description
+    this.editedDescription = this.currentDescription;
+  }
 
   onEditSave() {
     // Update the description
     this.saveDescription.emit(this.editedDescription);
-    this.closeModal();
   }
 
   onDelete() {
     // Delete the description
     this.deleteDescription.emit();
-    this.closeModal();
   }
+
   closeModal() {
     // Close the modal
-    this.modalController.dismiss({
-      editedDescription: this.editedDescription,
-    });
-}
-
+    this.editedDescription = ''; // Reset the edited description
+  }
 }

@@ -19,4 +19,19 @@ export class AuthenticationService {
     const url = `${this.serverUrl}/getnewsfeed?status_enum_id=1&news_user_type_id=149`;
     return this.http.get<any>(url);
   }
+
+  getUserProfile(userId: number): Observable<any> {
+    const url = `${this.serverUrl}/userprofile?user_id=${userId}`;
+    return this.http.get<any>(url);
+  }
+  updateUserProfileDescription(userId: number, description: string): Observable<any> {
+    const url = `${this.serverUrl}/updateuserprofile`; // Adjust the endpoint accordingly
+    const body = {
+      user_id: userId,
+      description: description,
+    };
+
+    return this.http.put<any>(url, body);
+  }
+
 }
