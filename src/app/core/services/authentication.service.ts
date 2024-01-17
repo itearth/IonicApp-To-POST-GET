@@ -8,6 +8,11 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
   serverUrl = 'https://new.hipoz.com/api';
 
+  getLoggedInUserId(): number | null {
+    const userId = localStorage.getItem('userId');
+    return userId ? +userId : null;
+  }
+
   constructor(private http: HttpClient) { }
 
   login(params: any): Observable<any> {
@@ -24,8 +29,9 @@ export class AuthenticationService {
     const url = `${this.serverUrl}/userprofile?user_id=${userId}`;
     return this.http.get<any>(url);
   }
+  
   updateUserProfileDescription(userId: number, description: string): Observable<any> {
-    const url = `${this.serverUrl}/updateuserprofile`; // Adjust the endpoint accordingly
+    const url = `${this.serverUrl}/updateuserprofile`;
     const body = {
       user_id: userId,
       description: description,

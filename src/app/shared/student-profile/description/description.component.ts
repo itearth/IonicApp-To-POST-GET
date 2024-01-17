@@ -9,10 +9,11 @@ import { AuthenticationService } from 'src/app/core/services/authentication.serv
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.scss'],
 })
+
 export class DescriptionComponent implements OnInit {
   description: string = "Loading...";
   isEditDialogOpen = false;
-  userId = 1552;
+  userId: number | null = null;
 
   constructor(
     private modalController: ModalController,
@@ -24,25 +25,29 @@ export class DescriptionComponent implements OnInit {
     this.loadUserProfile();
   }
 
-  async loadUserProfile() {
-    this.authService.getUserProfile(this.userId).subscribe(
-      (response) => {
-        if (response && response.data && response.data.length > 0) {
-          const userProfile = response.data[0];
+   async loadUserProfile() {
+    this.userId = this.authService.getLoggedInUserId();
 
-          if (userProfile.description) {
-            this.description = userProfile.description;
+    if (this.userId !== null) { 
+      this.authService.getUserProfile(this.userId).subscribe(
+        (response) => {
+          if (response && response.data && response.data.length > 0) {
+            const userProfile = response.data[0];
+
+            if (userProfile.description) {
+              this.description = userProfile.description;
+            } else {
+              console.warn('User profile has no description.');
+            }
           } else {
-            console.warn('User profile has no description.');
+            console.warn('No user profile data found in the API response.');
           }
-        } else {
-          console.warn('No user profile data found in the API response.');
+        },
+        (error) => {
+          console.error('Error fetching user profile:', error);
         }
-      },
-      (error) => {
-        console.error('Error fetching user profile:', error);
-      }
-    );
+      );
+    }
   }
 
   openEditDialog() {
@@ -70,18 +75,23 @@ export class DescriptionComponent implements OnInit {
   }
 
   updateUserProfile() {
-    this.authService.updateUserProfileDescription(this.userId, this.description).subscribe(
-      (response) => {
-        console.log('User profile description updated successfully:', response);
-      },
-      (error) => {
-        console.error('Error updating user profile description:', error);
-      }
-    );
+    if (this.userId !== null) {
+      this.authService.updateUserProfileDescription(this.userId, this.description).subscribe(
+        (response) => {
+          console.log('User profile description updated successfully:', response);
+        },
+        (error) => {
+          console.error('Error updating user profile description:', error);
+        }
+      );
+    } else {
+      console.error('userId is null. Cannot update user profile description.');
+    }
   }
 
   saveDescription(editedDescription: string) {
     this.description = editedDescription;
+    this.updateUserProfile();
     this.closeEditModal();
   }
 

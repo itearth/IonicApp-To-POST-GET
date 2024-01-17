@@ -17,22 +17,18 @@ export class DescriptionEditComponent {
   constructor() {}
 
   ngOnInit() {
-    // Set the initial edited description to the current description
     this.editedDescription = this.currentDescription;
   }
 
   onEditSave() {
-    // Update the description
     this.saveDescription.emit(this.editedDescription);
   }
 
   onDelete() {
-    // Delete the description
     this.deleteDescription.emit();
   }
 
   closeModal() {
-    // Close the modal
-    this.editedDescription = ''; // Reset the edited description
+    this.editedDescription = '';
   }
 }
