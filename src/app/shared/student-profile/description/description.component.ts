@@ -22,25 +22,21 @@ export class DescriptionComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('DescriptionComponent initialized');
     this.loadUserProfile();
   }
 
-   async loadUserProfile() {
+  async loadUserProfile() {
+    console.log('Loading user profile...');
+    console.log('User ID:', this.userId);
     this.userId = this.authService.getLoggedInUserId();
-
+  
     if (this.userId !== null) { 
       this.authService.getUserProfile(this.userId).subscribe(
         (response) => {
           if (response && response.data && response.data.length > 0) {
             const userProfile = response.data[0];
-
-            if (userProfile.description) {
-              this.description = userProfile.description;
-            } else {
-              console.warn('User profile has no description.');
-            }
-          } else {
-            console.warn('No user profile data found in the API response.');
+            this.description = userProfile.description;
           }
         },
         (error) => {
@@ -49,6 +45,7 @@ export class DescriptionComponent implements OnInit {
       );
     }
   }
+  
 
   openEditDialog() {
     this.isEditDialogOpen = true;

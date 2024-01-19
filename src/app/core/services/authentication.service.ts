@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,15 @@ export class AuthenticationService {
 
   getUserProfile(userId: number): Observable<any> {
     const url = `${this.serverUrl}/userprofile?user_id=${userId}`;
-    return this.http.get<any>(url);
+    return this.http.get<any>(url).pipe(
+      tap(response => console.log('getUserProfile response:', response)),
+      catchError(error => {
+        console.error('Error in getUserProfile:', error);
+        throw error;
+      })
+    );
   }
+  
   
   updateUserProfileDescription(userId: number, description: string): Observable<any> {
     const url = `${this.serverUrl}/updateuserprofile`;
